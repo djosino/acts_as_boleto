@@ -181,6 +181,19 @@ module ActsAsBoleto
       end
     end
 
+    def f_moeda(v)
+      p,c = v.to_s.split(".")
+      i = 1
+      pos = 1
+      while i < ( (v.to_s.length - 1)/3) and pos > 0
+        p.insert(p.length - ((3 * i) + (i - 1)),".")
+        i += 1
+      end
+      c = c + '0' if (c.length < 2 and c.to_i < 10)
+      p + ',' + c
+   end
+
+
     def monta_linha_digitavel(linha)
         # 01-03    -> Código do banco sem o digito
         # 04-04    -> Código da Moeda (9-Real)
