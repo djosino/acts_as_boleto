@@ -10,13 +10,11 @@ Gem::Specification.new do |s|
   s.authors     = ["TODO: Danilo Josino"]
   s.email       = ["TODO: danilo.josino@gmail.com"]
   s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of ActsAsBoleto."
-  s.description = "TODO: Description of ActsAsBoleto."
+  s.summary     = "TODO: ActsAsBoleto para rails4.0.0."
+  s.description = "TODO: Geração de boletos do Bradesco para rails4 - ActsAsBoleto."
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 4.0.0"
-
-  #s.add_development_dependency "sqlite3"
 end
