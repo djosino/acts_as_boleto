@@ -97,27 +97,26 @@ module ActsAsBoleto
     #formata o numero
     #preenche com zeros
     def formata_numero(numero,loop,insert,tipo = "geral")
-            if (tipo == "geral")
-                    numero = numero.gsub(',','')
-                    while(numero.size<loop) do
-                            numero = "#{insert}#{numero}"
-                    end
-            end
-            if (tipo == "valor")
-                    numero = numero.to_s.gsub(',','')
-                    numero = numero.gsub('.','')
-                    while(numero.size<loop) do
-                            numero = "#{insert}#{numero}"
-                    end
-            end
-            if (tipo == "convenio")
-                    while(numero.size<loop)do
-                            numero = "#{numero}#{insert}"
-                    end
-            end
-            return numero
+      if (tipo == "geral")
+        numero = numero.gsub(',','')
+        while(numero.size<loop) do
+            numero = "#{insert}#{numero}"
+        end
+      end
+      if (tipo == "valor")
+        numero = numero.to_s.gsub(',','')
+        numero = numero.gsub('.','')
+        while(numero.size<loop) do
+          numero = "#{insert}#{numero}"
+        end
+      end
+      if (tipo == "convenio")
+        while(numero.size<loop)do
+          numero = "#{numero}#{insert}"
+        end
+      end
+      return numero
     end
-
 
     #modulo 10 retirada do phpBoleto
     def modulo_10(num)
@@ -134,17 +133,12 @@ module ActsAsBoleto
         temp.to_s.split("").each { |j| temp0 += j.to_i }
         parcial10[i] = temp0.to_i
         numtotal10 += parcial10[i].to_i
-
-
         if fator == 2
           fator = 1
         else
           fator = 2
         end
       end
-
-
-
       resto = numtotal10 % 10
       digito = 10 - resto
       if (resto == 0)
