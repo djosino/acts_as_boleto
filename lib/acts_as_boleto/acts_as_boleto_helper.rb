@@ -41,10 +41,10 @@ module ActsAsBoletoHelper
 
 
     #Guarda inicial
-    desenho_barra = "<img src=/images/p.gif width=#{fino} height=#{altura} border=0>"
-    desenho_barra += "<img src=/images/b.gif width=#{fino} height=#{altura} border=0>"
-    desenho_barra += "<img src=/images/p.gif width=#{fino} height=#{altura} border=0>"
-    desenho_barra += "<img src=/images/b.gif width=#{fino} height=#{altura} border=0><img "
+    desenho_barra = "<img src=/images/acts_as_boleto/p.gif width=#{fino} height=#{altura} border=0>"
+    desenho_barra += "<img src=/images/acts_as_boleto/b.gif width=#{fino} height=#{altura} border=0>"
+    desenho_barra += "<img src=/images/acts_as_boleto/p.gif width=#{fino} height=#{altura} border=0>"
+    desenho_barra += "<img src=/images/acts_as_boleto/b.gif width=#{fino} height=#{altura} border=0><img "
       
     texto = valor
 
@@ -66,7 +66,7 @@ module ActsAsBoletoHelper
           f1 = largo
         end
 
-        desenho_barra += "src=/images/p.gif width=#{f1} height=#{altura} border=0><img "
+        desenho_barra += "src=/images/acts_as_boleto/p.gif width=#{f1} height=#{altura} border=0><img "
     
         if f[i,1] == "0"
           f2 = fino
@@ -74,17 +74,17 @@ module ActsAsBoletoHelper
           f2 = largo
         end
 
-        desenho_barra += "src=/images/b.gif width=#{f2} height=#{altura} border=0><img " 
+        desenho_barra += "src=/images/acts_as_boleto/b.gif width=#{f2} height=#{altura} border=0><img " 
 
       end
     end
 
     # Draw guarda final
-    desenho_barra += "src=/images/p.gif width=#{largo} height=#{altura} border=0><img "
-    desenho_barra += "src=/images/b.gif width=#{fino} height=#{altura} border=0><img " 
-    desenho_barra += "src=/images/p.gif width=#{1} height=#{altura} border=0>"
+    desenho_barra += "src=/images/acts_as_boleto/p.gif width=#{largo} height=#{altura} border=0><img "
+    desenho_barra += "src=/images/acts_as_boleto/b.gif width=#{fino} height=#{altura} border=0><img " 
+    desenho_barra += "src=/images/acts_as_boleto/p.gif width=#{1} height=#{altura} border=0>"
     #session[:barra] = desenho_barra
-    return desenho_barra
+    return desenho_barra.html_safe
   end  
 
   def f_moeda(v)
