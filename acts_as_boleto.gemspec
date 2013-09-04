@@ -7,8 +7,8 @@ require "acts_as_boleto/version"
 Gem::Specification.new do |s|
   s.name        = "acts_as_boleto"
   s.version     = ActsAsBoleto::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
+  s.authors     = ["TODO: Danilo Josino"]
+  s.email       = ["TODO: danilo.josino@gmail.com"]
   s.homepage    = "TODO"
   s.summary     = "TODO: Summary of ActsAsBoleto."
   s.description = "TODO: Description of ActsAsBoleto."
@@ -18,5 +18,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.0.0"
 
-  s.add_development_dependency "sqlite3"
+  #s.add_development_dependency "sqlite3"
 end
