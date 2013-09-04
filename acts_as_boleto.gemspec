@@ -7,8 +7,8 @@ require "acts_as_boleto/version"
 Gem::Specification.new do |s|
   s.name        = "acts_as_boleto"
   s.version     = ActsAsBoleto::VERSION
-  s.authors     = ["TODO: Danilo Josino"]
-  s.email       = ["TODO: danilo.josino@gmail.com"]
+  s.authors     = ["Danilo Josino"]
+  s.email       = ["danilo.josino@gmail.com"]
   s.homepage    = "TODO"
   s.summary     = "TODO: ActsAsBoleto para rails4.0.0."
   s.description = "TODO: Geração de boletos do Bradesco para rails4 - ActsAsBoleto."
