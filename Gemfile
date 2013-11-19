@@ -12,3 +12,7 @@ gemspec
 
 # To use debugger
 # gem 'debugger'
+
+gem 'chunky_png', '~> 1.2.9'
+gem 'barby', '~> 0.5.1'
+gem 'prawn', '~> 0.12.0'

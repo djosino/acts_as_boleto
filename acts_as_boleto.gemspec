@@ -19,4 +19,5 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 4.0.0"
   s.add_dependency "barby", "~> 0.5.1"
   s.add_dependency "prawn", "~> 0.12.0"
+  s.add_dependency "chunky_png", "~> 1.2.9"
 end
