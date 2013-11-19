@@ -42,7 +42,7 @@ module ActsAsBoletoHelper
 
     #Guarda inicial
     img_path = '/images'                       if imagem == 'local' 
-    img_path = "#{RAILS_ROOT}/public/images" if imagem == 'pdf'  
+    img_path = "#{Rails.root}/public/images" if imagem == 'pdf'  
 
     desenho_barra = "<img src=#{img_path}/p.gif width=#{fino} height=#{altura} border=0>"
     desenho_barra += "<img src=#{img_path}/b.gif width=#{fino} height=#{altura} border=0>"

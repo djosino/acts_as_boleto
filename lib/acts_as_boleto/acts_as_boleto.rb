@@ -246,7 +246,7 @@ module ActsAsBoleto
     
     def fbarcode_prawn(valor, nome)
       barcode = Barby::Code25Interleaved.new(valor)
-      File.open(RAILS_ROOT + "/tmp/cache/#{nome}.png", 'w'){|f|
+      File.open(Rails.root + "/tmp/cache/#{nome}.png", 'w'){|f|
         f.write barcode.to_png(:height => 50, :margin => 0)
       }
     end  
@@ -256,14 +256,14 @@ module ActsAsBoleto
       tfont_size= 8
       ##      
       barcode = Barby::Code25Interleaved.new(dadosboleto[:codigo_barras])
-      File.open(RAILS_ROOT + "/tmp/cache/#{boleto.id}.png", 'w'){|f|
+      File.open(Rails.root + "/tmp/cache/#{boleto.id}.png", 'w'){|f|
         f.write barcode.to_png(:height => 50, :margin => 0)
       }
       ##
       table_opts = {:size => tfont_size, :inline_format => true, :padding => 3, :height => 27} 
       table_opts_no_top = table_opts.merge({:borders => [:left, :right, :bottom]})
 
-      Prawn::Document.generate(RAILS_ROOT + "/public/boletos/#{boleto.id}.pdf", 
+      Prawn::Document.generate(Rails.root + "/public/boletos/#{boleto.id}.pdf", 
                                :page_layout => :portrait, 
                                :left_margin   => 0.5.cm,
                                :right_margin  => 1.cm,
@@ -299,7 +299,7 @@ module ActsAsBoleto
 
          # 
          move_down 30
-         image "#{RAILS_ROOT}/public/images/logobradesco.jpg", :at => [0, cursor], :width => 80
+         image "#{Rails.root}/public/images/logobradesco.jpg", :at => [0, cursor], :width => 80
          line([135,cursor ],[135,cursor - 20])
          stroke
          line([185,cursor ],[185,cursor - 20])
@@ -367,7 +367,7 @@ module ActsAsBoleto
          # fim tabela 1
          move_down 10
          # 
-         image "#{RAILS_ROOT}/public/images/logobradesco.jpg", :at => [0, cursor], :width => 80
+         image "#{Rails.root}/public/images/logobradesco.jpg", :at => [0, cursor], :width => 80
          line([135,cursor ],[135,cursor - 20])
          stroke
          line([185,cursor ],[185,cursor - 20])
@@ -471,7 +471,7 @@ module ActsAsBoleto
             text_box "Autenticação Mecânica - ", :size => tfont_size, :at => [348, cursor]
             text_box "Ficha de Compensação",     :size => tfont_size, :at => [438, cursor], :style => :bold
             move_down 15
-            image "#{RAILS_ROOT}/tmp/cache/#{boleto.id}.png", :at => [0,cursor], :width => 270
+            image "#{Rails.root}/tmp/cache/#{boleto.id}.png", :at => [0,cursor], :width => 270
             move_down 50
             text_box "Corte na linha pontilhada",:size => tfont_size - 0.5, :at => [0, cursor], :align => :right, :width => 525
             move_down 10
