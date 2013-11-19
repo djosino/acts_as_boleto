@@ -246,7 +246,7 @@ module ActsAsBoleto
     
     def fbarcode_prawn(valor, nome)
       barcode = Barby::Code25Interleaved.new(valor)
-      File.open(Rails.root + "/tmp/cache/#{nome}.png", 'w'){|f|
+      File.open("#{Rails.root}/tmp/cache/#{nome}.png", 'w'){|f|
         f.write barcode.to_png(:height => 50, :margin => 0)
       }
     end  
@@ -260,7 +260,7 @@ module ActsAsBoleto
       table_opts = {:size => tfont_size, :inline_format => true, :padding => 3, :height => 27} 
       table_opts_no_top = table_opts.merge({:borders => [:left, :right, :bottom]})
 
-      Prawn::Document.generate(Rails.root + "/public/boletos/#{boleto.id}.pdf", 
+      Prawn::Document.generate("#{Rails.root}/public/boletos/#{boleto.id}.pdf", 
                                :page_layout => :portrait, 
                                :left_margin   => 0.5.cm,
                                :right_margin  => 1.cm,
