@@ -292,7 +292,7 @@ module ActsAsBoleto
 
          # 
          move_down 30
-         image "#{Rails.root}/public/images/logobradesco.jpg", :at => [0, cursor], :width => 80
+         image "#{Rails.root}/public/images/acts_as_boleto/logobradesco.jpg", :at => [0, cursor], :width => 80
          line([135,cursor ],[135,cursor - 20])
          stroke
          line([185,cursor ],[185,cursor - 20])
@@ -360,7 +360,7 @@ module ActsAsBoleto
          # fim tabela 1
          move_down 10
          # 
-         image "#{Rails.root}/public/images/logobradesco.jpg", :at => [0, cursor], :width => 80
+         image "#{Rails.root}/public/images/acts_as_boleto/logobradesco.jpg", :at => [0, cursor], :width => 80
          line([135,cursor ],[135,cursor - 20])
          stroke
          line([185,cursor ],[185,cursor - 20])
