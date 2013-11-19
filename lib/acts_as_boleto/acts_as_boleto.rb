@@ -327,7 +327,9 @@ module ActsAsBoleto
                      ]
             move_down 0.5
             table([montar_linha.collect{|l| l[0]}], :column_widths => montar_linha.collect{|l| l[1]}, :cell_style => table_opts_no_top)  
-            text_box dadosboleto[:data_vencimento], :at => [310, 624], :align => :right, :width => 95, :size => tfont_size, :style => :bold
+            move_up 10
+            text_box dadosboleto[:valor_boleto], :at => [0, cursor], :align => :right, :width => 525, :size => tfont_size, :style => :bold
+            move_down 10
             # fim Linha 2
             
             # Tabela 1 - Linha 3
@@ -464,7 +466,7 @@ module ActsAsBoleto
             text_box "Autenticação Mecânica - ", :size => tfont_size, :at => [348, cursor]
             text_box "Ficha de Compensação",     :size => tfont_size, :at => [438, cursor], :style => :bold
             move_down 15
-            image "#{Rails.root}/tmp/cache/#{boleto.id}.png", :at => [0,cursor], :width => 270
+            image "#{Rails.root}/tmp/cache/#{boleto.id}.png", :at => [0,cursor], :width => 300
             move_down 50
             text_box "Corte na linha pontilhada",:size => tfont_size - 0.5, :at => [0, cursor], :align => :right, :width => 525
             move_down 10
