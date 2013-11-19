@@ -1,4 +1,12 @@
-acts_as_boleto
+TODO
 ==============
 
 acts_as_boleto Bradesco
+
+Gem para geração de boletos do Bradesco, migrado do rails2 ~> rails4
+
+ * Gems
+ ** Prawn
+ ** Barby
+
+

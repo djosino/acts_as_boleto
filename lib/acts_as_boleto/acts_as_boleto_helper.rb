@@ -8,7 +8,7 @@ module ActsAsBoletoHelper
     return entra[(entra.size-comp),(comp)]
   end
 
-  def fbarcode(valor)
+  def fbarcode(valor, imagem='local')
     fino = 1 
     largo = 3 
     altura = 50 
@@ -41,10 +41,13 @@ module ActsAsBoletoHelper
 
 
     #Guarda inicial
-    desenho_barra = "<img src=/images/acts_as_boleto/p.gif width=#{fino} height=#{altura} border=0>"
-    desenho_barra += "<img src=/images/acts_as_boleto/b.gif width=#{fino} height=#{altura} border=0>"
-    desenho_barra += "<img src=/images/acts_as_boleto/p.gif width=#{fino} height=#{altura} border=0>"
-    desenho_barra += "<img src=/images/acts_as_boleto/b.gif width=#{fino} height=#{altura} border=0><img "
+    img_path = '/images'                       if imagem == 'local' 
+    img_path = "#{RAILS_ROOT}/public/images" if imagem == 'pdf'  
+
+    desenho_barra = "<img src=#{img_path}/p.gif width=#{fino} height=#{altura} border=0>"
+    desenho_barra += "<img src=#{img_path}/b.gif width=#{fino} height=#{altura} border=0>"
+    desenho_barra += "<img src=#{img_path}/p.gif width=#{fino} height=#{altura} border=0>"
+    desenho_barra += "<img src=#{img_path}/b.gif width=#{fino} height=#{altura} border=0><img "
       
     texto = valor
 
@@ -66,7 +69,7 @@ module ActsAsBoletoHelper
           f1 = largo
         end
 
-        desenho_barra += "src=/images/acts_as_boleto/p.gif width=#{f1} height=#{altura} border=0><img "
+        desenho_barra += "src=#{img_path}/p.gif width=#{f1} height=#{altura} border=0><img "
     
         if f[i,1] == "0"
           f2 = fino
@@ -74,29 +77,18 @@ module ActsAsBoletoHelper
           f2 = largo
         end
 
-        desenho_barra += "src=/images/acts_as_boleto/b.gif width=#{f2} height=#{altura} border=0><img " 
+        desenho_barra += "src=#{img_path}/b.gif width=#{f2} height=#{altura} border=0><img " 
 
       end
     end
 
     # Draw guarda final
-    desenho_barra += "src=/images/acts_as_boleto/p.gif width=#{largo} height=#{altura} border=0><img "
-    desenho_barra += "src=/images/acts_as_boleto/b.gif width=#{fino} height=#{altura} border=0><img " 
-    desenho_barra += "src=/images/acts_as_boleto/p.gif width=#{1} height=#{altura} border=0>"
+    desenho_barra += "src=#{img_path}/p.gif width=#{largo} height=#{altura} border=0><img "
+    desenho_barra += "src=#{img_path}/b.gif width=#{fino} height=#{altura} border=0><img " 
+    desenho_barra += "src=#{img_path}/p.gif width=#{1} height=#{altura} border=0>"
     #session[:barra] = desenho_barra
-    return desenho_barra.html_safe
+    return desenho_barra
   end  
 
-  def f_moeda(v)
-      p,c = v.to_s.split(".")
-      i = 1
-      pos = 1
-      while i < ( (v.to_s.length - 1)/3) and pos > 0
-        p.insert(p.length - ((3 * i) + (i - 1)),".")
-        i += 1
-      end
-      c = c + '0' if (c.length < 2 and c.to_i < 10)
-      p + ',' + c
-   end
-
+  
 end
