@@ -246,7 +246,7 @@ module ActsAsBoleto
     
     def fbarcode_prawn(valor, nome)
       barcode = Barby::Code25Interleaved.new(valor)
-      File.open("#{Rails.root}/tmp/cache/#{nome}.png", 'w'){|f|
+      File.open(Rails.root + "/tmp/cache/#{nome}.png", 'w'){|f|
         f.write barcode.to_png(:height => 50, :margin => 0)
       }
     end  
@@ -255,7 +255,10 @@ module ActsAsBoleto
       font_size = 9
       tfont_size= 8
       ##      
-      fbarcode_prawn(dadosboleto[:codigo_barras], boleto.id)
+      barcode = Barby::Code25Interleaved.new(dadosboleto[:codigo_barras])
+      File.open("#{Rails.root}/tmp/cache/#{boleto.id}.png", 'w'){|f|
+        f.write barcode.to_png(:height => 50, :margin => 0)
+      }
       ##
       table_opts = {:size => tfont_size, :inline_format => true, :padding => 3, :height => 27} 
       table_opts_no_top = table_opts.merge({:borders => [:left, :right, :bottom]})
