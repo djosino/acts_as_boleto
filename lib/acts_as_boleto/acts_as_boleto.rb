@@ -53,7 +53,6 @@ module ActsAsBoleto
         @nossonumero = "#{@nnum[0,2]}/#{@nnum[2,(@nnum.size - 1)]}-#{@dv_nosso_numero}"
         @agencia_codigo = "#{@agencia}-#{@dadosboleto[:agencia_dv]} / #{@conta_cedente}-#{@conta_cedente_dv}"
 
-
         @dadosboleto[:codigo_barras] = @linha
         @dadosboleto[:linha_digitavel] = monta_linha_digitavel(@linha)
         @dadosboleto[:agencia_codigo] = @agencia_codigo
@@ -63,7 +62,7 @@ module ActsAsBoleto
     #Fator vencimento, phpboleto
     def fator_vencimento(data)
         data_base = '1997/10/07'.to_date
-        (data).to_date - data_base
+        ((data).to_date - data_base).to_i
         #(Time.today + 1.day).to_date - data_base
     end
 
