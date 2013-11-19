@@ -313,11 +313,11 @@ module ActsAsBoleto
                        ["Nosso Número\n  ", 130    ] 
                      ]
             move_down 10.6
-            table([montar_linha.collect{|l| l[0]}], :column_widths => montar_linha.collect{|l| l[1]}, :cell_style => table_opts) 
-            move_up 10
+            table([montar_linha.collect{|l| l[0]}], :column_widths => montar_linha.collect{|l| l[1]}, :cell_style => table_opts.merge({:height => 34})) 
+            move_up 18
             text_box dadosboleto[:nosso_numero], :at => [0, cursor], :align => :right, :width => 525, :size => tfont_size, :style => :bold
             # fim Linha 1
-            move_down 9.5
+            move_down 17.5
             # Tabela 1 - Linha 2
             montar_linha = [
                        ["Número do documento \n <b> #{dadosboleto[:numero_documento]} </b>", 200 ],
@@ -449,9 +449,6 @@ module ActsAsBoleto
             stroke
             move_down 5
             text_box "(=) Valor cobrado",          :at => [405, cursor], :size => tfont_size
-
-
-            
             # fim Linha 5
 
             # Tabela 2 - Linha 6
