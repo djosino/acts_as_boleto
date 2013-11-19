@@ -62,8 +62,7 @@ module ActsAsBoleto
     #Fator vencimento, phpboleto
     def fator_vencimento(data)
         data_base = '1997/10/07'.to_date
-        ((data).to_date - data_base).to_i
-        #(Time.today + 1.day).to_date - data_base
+        return ((data).to_date - data_base).to_i
     end
 
     def digito_verificador_nossonumero(numero)
@@ -283,11 +282,6 @@ module ActsAsBoleto
          text_box "Linha Digitável: #{dadosboleto[:linha_digitavel]}", :size => font_size +1, :style => :bold, :at => [5, cursor]
          move_down 15
          text_box "Valor: R$ #{dadosboleto[:valor_boleto]}",           :size => font_size +1, :style => :bold, :at => [5, cursor]
-         if boleto.financiado and boleto.financiado.domicilio 
-            origem = boleto.financiado.domicilio.cod == '1389' ? "CAPITAL" : "INTERIOR"
-            text_box "ORIGEM: #{origem}",                             :size => font_size + 1, :style => :bold, :at => [150, cursor]
-         end
-         text_box "PLACA: #{boleto.placa}",                           :size => font_size + 1, :style => :bold, :at => [280, cursor]
 
          move_down 25
          # linha 1
